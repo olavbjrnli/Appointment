@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>Post a room</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+    <img *ngIf="cameraPreview" src="{{'data:image/jpeg;base64,' + cameraPreview}}" style="max-height: 40vh" />
+    <ion-item lines="none">
+        <ion-label>Address </ion-label>  
+      <ion-searchbar [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" placeholder="Search for an address"></ion-searchbar>
+    </ion-item>
+    <ion-list [hidden]="autocompleteItems.length == 0" *ngIf="this.closeList === false">
+        <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+          {{ item.description }}
+        </ion-item>
+      </ion-list>
+      <ion-item>
+        <ion-label>Address :</ion-label>
+          <ion-textarea type="text" [(ngModel)]="address"></ion-textarea>
+      </ion-item>
+  <ion-list>
+    <ion-item>
+      <ion-label>Title : </ion-label>
+      <ion-input type="text" [(ngModel)]="postTitle"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Desription : </ion-label>
+      <ion-textarea type="text" [(ngModel)]="info"></ion-textarea>
+    </ion-item>
+    <ion-item>
+        <ion-label>Image</ion-label>
+        <ion-select placeholder="Select One" [(ngModel)]="imgType">
+          <ion-select-option value="link">Paste link</ion-select-option>
+          <ion-select-option value="camera">Take picture</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="imgType == 'link' ">
+          <ion-label>Imagelink : </ion-label>
+          <ion-input type="text"[(ngModel)]="imgScr"></ion-input>
+        </ion-item>
+  </ion-list>
+  <ion-button *ngIf="imgType == 'camera' " expand="block" class="btn-take-picture" (click)="takePicture()">Take picture</ion-button>
+  <ion-button fill="solid" expand="block" color="primary" (click)="postRoomToFirebase()">Add room</ion-button> 
+</ion-card>
+</ion-content>

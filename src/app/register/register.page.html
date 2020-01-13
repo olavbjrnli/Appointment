@@ -1,0 +1,37 @@
+<ion-header>
+</ion-header>
+<!-- https://ionicframework.com/docs/v3/components/#inline-labels-->
+<ion-content>
+
+  <ion-list>
+    <img src="/assets/logo.png"/>
+    <div class="form">
+    <ion-card>
+    <ion-item lines="none">
+      <ion-label position="stacked">Email address </ion-label>
+      <ion-input type="text" [(ngModel)]="username"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item lines="none">
+      <ion-label position="stacked">Password </ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item lines="none">
+      <ion-label position="stacked"> Confirm password  </ion-label>
+      <ion-input type="password" [(ngModel)]="confirmPassword"></ion-input>
+    </ion-item>
+  </ion-card>
+  <ion-button fill="solid" expand="block" color="primary" (click)="register()">Sign up</ion-button> 
+  <ion-item lines="none"><p>Already have an account? back to <a routerLink='/login'>
+    login</a></p>
+  <ion-input type="text" id="name" name="some_name" value="{{this.wrongPass}}"></ion-input></ion-item>  
+ 
+  </div>
+  </ion-list>
+  
+
+</ion-content>
+

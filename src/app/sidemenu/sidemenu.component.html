@@ -1,0 +1,39 @@
+<ion-menu side="start" contentId="first" type="overlay">
+    <ion-header>
+      <ion-toolbar color="primary">
+       
+          <ion-item color="primary" lines="none">
+          <ion-icon class="avatar" color="light" name="contact" ></ion-icon>
+        <ion-label color="light">Welcome {{loggedInUser}}</ion-label>
+      </ion-item>
+        
+      </ion-toolbar>
+    </ion-header>
+    <ion-content no-bounce>
+      <ion-list lines="none">
+        <ion-card>
+        <ion-item lines="none"> 
+              <ion-icon color="medium" name="checkbox-outline" (click)="navigate()"></ion-icon>
+              <ion-label color="primary" (click)="navigate()">Your bookings</ion-label>  
+          </ion-item>
+        </ion-card>
+        <ion-card>
+            <ion-item lines="none"> 
+                  <ion-icon color="medium" name="chatboxes"></ion-icon>
+                  <ion-label color="primary" >Chat(comming soon)</ion-label>  
+              </ion-item>
+            </ion-card>
+
+      </ion-list>
+    </ion-content>
+    <ion-footer>
+            <ion-card class="logout">
+                <ion-item lines="none" class="logout_label"> 
+                    <ion-icon color="medium" name="exit" (click)="logout()"></ion-icon>
+                    <ion-label color="primary" (click)="logout()" >Log out</ion-label>  
+                </ion-item>
+              </ion-card>
+      </ion-footer>
+  </ion-menu>    
+  <ion-router-outlet id="first"></ion-router-outlet>
+  

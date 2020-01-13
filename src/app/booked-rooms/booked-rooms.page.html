@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    
+      <ion-buttons slot="start">
+        <ion-menu-button>
+        </ion-menu-button>
+      </ion-buttons>
+      <ion-title>Your bookings</ion-title>
+    </ion-toolbar>
+   
+  </ion-header>
+  <ion-content>
+      <ion-list *ngFor="let rooms of rooms$ | async" lines="none">
+          <ion-card (click)="navRoomDetails(rooms)" >
+              <ion-list>
+                  <ion-card-header>
+                    <ion-card-subtitle>{{rooms?.author}}</ion-card-subtitle>
+                    <img [src]="rooms?.imgUrl" />
+                    <ion-card-title>{{rooms?.title}}</ion-card-title>
+                  </ion-card-header>
+                  <ion-item>
+                  <ion-label>{{rooms?.info}}</ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Location {{rooms?.address}}</ion-label>
+                </ion-item>
+                 </ion-list>
+              </ion-card>
+    
+    </ion-list>
+  
+  </ion-content>
+  
